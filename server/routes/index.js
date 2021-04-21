@@ -5,11 +5,9 @@ const users = require('../model/users');
 
 router.post('/login', (req, res) => {
   // enter your code here
-  console.log('TEST 1');
 
   let email = req.body.email;
   let password = req.body.password;
-  console.log('TEST 2');
 
   if (email && password) {
     const user = users.find((el) => el.email === email && el.password === password);
@@ -22,10 +20,32 @@ router.post('/login', (req, res) => {
 
 router.get('/logout', redirectLogin, (req, res) => {
   // enter your code here
+  req.session.destroy();
+  res.clearCookie(process.env.SESSION_NAME);
 });
 
 router.post('/register', (req, res) => {
   // enter your code here
+  let { email, password, name } = req.body;
+  if (email != '' && name != '' && password != '') {
+    let temp = users.find((el) => el.email == email);
+    if (temp) {
+      res.status(409).send('E-Mail already registered');
+    } else {
+      let highestInData = 0;
+      for (let i of users) {
+        if (i.id > highestInData) highestInData = i.id;
+      }
+      highestInData++;
+      users.push({
+        id: highestInData,
+        email: email,
+        name: name,
+        password: password,
+      });
+      res.status(200).send('OK');
+    }
+  } else res.status(400).send('Registration failed');
 });
 
 router.get('/secretdata', (req, res) => {
