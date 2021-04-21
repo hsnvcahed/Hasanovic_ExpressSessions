@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -31,6 +32,13 @@ export default {
   },
   async created() {
     // enter your code here
+    let { data } = await axios({
+      url: '/secretdata',
+      method: 'GET',
+    });
+    this.prime = data;
+    this.user.id = localStorage.getItem('id');
+    this.user.name = localStorage.getItem('name');
   },
 };
 </script>

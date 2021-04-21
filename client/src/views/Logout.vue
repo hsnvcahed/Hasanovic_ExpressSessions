@@ -16,10 +16,11 @@ export default {
   async created() {
     // enter your code here
     await axios({
-      url: 'http://127.0.0.1:3000/logout',
+      url: '/logout',
       method: 'GET',
     });
-    localStorage.clear();
+    localStorage.setItem('id', '');
+    localStorage.setItem('name', '');
   },
 };
 </script>

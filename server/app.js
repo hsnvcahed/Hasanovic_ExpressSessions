@@ -6,6 +6,7 @@ const errorHandler = require('./middleware/errorHandler');
 const session = require('express-session');
 const { allowedNodeEnvironmentFlags } = require('process');
 const cors = require('cors');
+const history = require('connect-history-api-fallback');
 
 require('dotenv').config({ path: __dirname + '/.env' });
 
@@ -13,6 +14,8 @@ const app = express();
 
 app.use(morgan('dev'));
 
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(history());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(express.json());

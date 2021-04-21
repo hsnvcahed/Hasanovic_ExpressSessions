@@ -39,8 +39,8 @@ export default {
   methods: {
     async register() {
       // enter your code here
-      let res = await axios({
-        url: 'http://127.0.0.1:3000/register',
+      await axios({
+        url: '/register',
         method: 'POST',
         'Content-Type': 'application/json',
         data: {
@@ -49,6 +49,7 @@ export default {
           password: this.password,
         },
       });
+      this.$router.push({ name: 'Login' });
     },
   },
 };
