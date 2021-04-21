@@ -41,8 +41,10 @@ export default {
           password: this.password,
         },
       });
-      localStorage.setItem('id', result.id);
-      localStorage.setItem('name', result.name);
+      console.log(result);
+
+      localStorage.setItem('id', result.data.id);
+      localStorage.setItem('name', result.data.name);
       this.$router.push({ name: 'Home' });
     },
   },

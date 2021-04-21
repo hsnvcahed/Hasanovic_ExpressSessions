@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const users = require('../model/users');
 // enter your code here
 
 router.post('/login', (req, res) => {
   // enter your code here
+  console.log('TEST 1');
+
   let email = req.body.email;
   let password = req.body.password;
+  console.log('TEST 2');
+
   if (email && password) {
     const user = users.find((el) => el.email === email && el.password === password);
     if (user) {
