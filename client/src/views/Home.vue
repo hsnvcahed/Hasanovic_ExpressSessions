@@ -15,14 +15,13 @@
           <h3>A word from our CEO</h3>
           <h4>Dear Customer</h4>
           <p class="text-justify">
-            PlanationX is an innovative International Seed Company, active in Plant Breeding, in Seed
-            Production, in Seed Processing; and in Marketing and Sales of hybrid vegetable varieties for the
-            professional sectors. PlanationX is an industry leader in Research and Development of new,
-            improved vegetable varieties. The Company’s strategic focus is to develop hybrids with novel
-            traits that have a high added- value and that meet the present and future demands of our
-            customers. Over the last fifteen years, we have marketed the seeds of our Cucurbit varieties
-            worldwide and we maintain the highest standards of genetic quality, integrity and professionalism.
-            Research is the heart of PlanationX and its future.
+            PlanationX is an innovative International Seed Company, active in Plant Breeding, in Seed Production, in
+            Seed Processing; and in Marketing and Sales of hybrid vegetable varieties for the professional sectors.
+            PlanationX is an industry leader in Research and Development of new, improved vegetable varieties. The
+            Company’s strategic focus is to develop hybrids with novel traits that have a high added- value and that
+            meet the present and future demands of our customers. Over the last fifteen years, we have marketed the
+            seeds of our Cucurbit varieties worldwide and we maintain the highest standards of genetic quality,
+            integrity and professionalism. Research is the heart of PlanationX and its future.
           </p>
         </div>
       </div>
@@ -56,6 +55,8 @@ export default {
   },
   created() {
     // enter your code here
+    this.user.id = localStorage.getItem('id');
+    this.user.name = localStorage.getItem('name');
   },
 };
 </script>

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   data() {
@@ -38,6 +39,16 @@ export default {
   methods: {
     async register() {
       // enter your code here
+      let res = await axios({
+        url: 'http://127.0.0.1:3000/register',
+        method: 'POST',
+        'Content-Type': 'application/json',
+        data: {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        },
+      });
     },
   },
 };
